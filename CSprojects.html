@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asher Frost | CS Projects</title>
+    <!-- Connecting your external stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-image: url('asher.jpg'); 
-             background-size: cover; 
-             background-repeat: no-repeat; 
-             background-position: center;">
+<body style="background-image: url('asher.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; margin: 0; padding: 0;">
     <script>
         console.log("The background has loaded")
     </script>
     <header>
         <h1>Asher Frost</h1>
-            <nav>
-                <a href="index.html">Home | </a>
-                <a href="stories.html">Published Stories</a>
-                <a href="CSprojects.html"> | CS Projects</a>
-            </nav>
+        <nav>
+            <a href="index.html">Home</a> | 
+            <a href="stories.html">Published Stories</a> | 
+            <a href="CSprojects.html" class="active">CS Projects</a>
+        </nav>
     </header>
     <main>
         <section>
-            <h2>Here is the link to my Github:</h2>
-            <ol>
-                <a href="https://github.com/AshesAndFlames/AshesAndFlames">Github Link</a>
-            </ol>
+            <h2>Computer Science Projects</h2>
+            <p>Welcome to my development space. Below you can find the link to my public repositories and source code:</p>
+            
+            <ul class="project-links">
+                <li>
+                    <a href="https://github.com/AshesAndFlames/AshesAndFlames" target="_blank" class="github-button">
+                        View my GitHub Profile
+                    </a>
+                </li>
+            </ul>
         </section>
     </main>
     <footer>

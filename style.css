@@ -1,0 +1,181 @@
+/* ==========================================================================
+   1. DESIGN TOKENS (Reusable Variables)
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --color-bg-overlay: rgba(257, 255, 253, 0.94); /* High readability over image */
+    --color-text-main: #2b2c2a;       /* Charcoal for deep body contrast */
+    --color-text-muted: #555753;      /* Accessible secondary text */
+    --color-heading: #5c563d;         /* Earthy forest tone for structural titles */
+    --color-primary: #654fa3;         /* Deep rich purple for stable links */
+    --color-primary-hover: #3d2d6b;   /* Darker purple for interactive states */
+    --color-visited: #8674b5;         /* Muted purple for historical state */
+    --color-accent-bg: #f7f6f4;       /* Clean neutral background for tables/buttons */
+    --color-border: #dcdad5;          /* Solid structural divider lines */
+
+    /* Typography Scales */
+    --font-serif: "Georgia", Times, serif;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    /* Global Spacing Scale */
+    --spacing-sm: 0.5rem;             /* 8px */
+    --spacing-md: 1rem;               /* 16px */
+    --spacing-lg: 2rem;               /* 32px */
+    --spacing-xl: 3.5rem;             /* 56px */
+    
+    /* Layout Constants */
+    --max-width: 850px;
+    --radius-md: 8px;
+}
+
+/* ==========================================================================
+   2. CORE RESET & BOX MODEL
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box; /* Predictable element sizing sizing */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: 100%; /* 16px structural default */
+    line-height: 1.6;
+    color: var(--color-text-main);
+    background-image: url('../asher.jpg'); /* Gracefully fallback to background color if missing */
+    background-color: var(--color-accent-bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    padding: var(--spacing-md);
+}
+
+/* ==========================================================================
+   3. GLOBAL TYPOGRAPHY & INTERACTION
+   ========================================================================== */
+h1, h2, h3, caption {
+    font-family: var(--font-serif);
+    color: var(--color-heading);
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: var(--spacing-sm); }
+h2 { font-size: 1.75rem; margin-bottom: var(--spacing-md); }
+p, ol, ul, table { margin-bottom: var(--spacing-md); }
+
+/* Accessible Interactive States */
+a:link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 600;
+}
+a:visited {
+    color: var(--color-visited);
+}
+a:hover, a:focus {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
+a:active {
+    color: var(--color-text-main);
+}
+
+/* Lists layout adjustments */
+ol, ul {
+    padding-left: var(--spacing-lg);
+}
+li {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   4. STRUCTURAL CONTENT AREAS (Semantic Hierarchy)
+   ========================================================================== */
+header, main, footer {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto var(--spacing-md) auto;
+    background-color: var(--color-bg-overlay);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+header {
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* Navigation Layout */
+nav {
+    margin-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-md);
+}
+nav a {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-right: var(--spacing-sm);
+    text-decoration: none !important;
+}
+
+main {
+    padding: var(--spacing-lg);
+    min-height: 40vh; /* Keeps layout stable on short text pages */
+}
+
+footer {
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   5. COMPONENT ELEMENT STYLES (Tables, Buttons, Links)
+   ========================================================================== */
+/* Tabular Data (Stories Layout) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-lg);
+}
+caption {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: var(--spacing-sm);
+}
+th, td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+th {
+    background-color: var(--color-accent-bg);
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Action Links & Buttons (CS Projects List Layout) */
+.project-links, .story-links {
+    list-style-type: none;
+    padding-left: 0;
+}
+.project-links a, .story-links a {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #ffffff !important;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 4px;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease;
+}
+.project-links a:hover, .story-links a:hover {
+    background-color: var(--color-primary-hover);
+}
