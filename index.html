@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asher Frost | Home</title>
-    <!-- Simplified link to your stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body style="background-image: url('asher.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; margin: 0; padding: 0;">
     <script>
@@ -16,7 +16,8 @@
         <nav>
             <a href="index.html">Home</a> | 
             <a href="stories.html">Published Stories</a> | 
-            <a href="CSprojects.html">CS Projects</a>
+            <a href="CSprojects.html">CS Projects</a> |
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">🌙 Dark Mode</button>
         </nav>
     </header>
     <main>
@@ -31,6 +32,7 @@
     </main>
     <footer>
         <p>&copy; 2026 Asher Frost</p>
+        <p id="timer-display" class="timer-text" aria-live="polite">Time on page: 0 seconds</p>
     </footer>
     <script>
         console.log("The webpage has loaded")
