@@ -7,69 +7,103 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body style="background-image: url('asher.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; margin: 0; padding: 0;">
+
     <script>
-        console.log("The background has loaded")
+        console.log("The background has loaded");
     </script>
+
     <header>
         <h1>Asher Frost</h1>
+
         <nav>
-            <a href="index.html">Home</a> | 
-            <a href="stories.html" class="active">Published Stories</a> | 
+            <a href="index.html">Home</a> |
+            <a href="stories.html" class="active">Published Stories</a> |
             <a href="CSprojects.html">CS Projects</a> |
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
+                🌙 Dark Mode
+            </button>
         </nav>
     </header>
+
     <main>
         <section>
             <h2>My stories!</h2>
+
             <nav class="story-links">
-                <a href="https://thetributaryjournal.com" target="_blank">Dead Man's Party</a>
-                <a href="https://thetributaryjournal.com" target="_blank">Scenes from a Goblin-town</a>
-                <a href="https://pressfuls.com" target="_blank">Fluff and Fortunes</a>
-                <a href="https://specpoverse.org" target="_blank">Pursuit</a>
+                <a href="https://thetributaryjournal.com" target="_blank" rel="noopener noreferrer">
+                    Dead Man's Party
+                </a>
+
+                <a href="https://thetributaryjournal.com" target="_blank" rel="noopener noreferrer">
+                    Scenes from a Goblin-town
+                </a>
+
+                <a href="https://pressfuls.com" target="_blank" rel="noopener noreferrer">
+                    Fluff and Fortunes
+                </a>
+
+                <a href="https://specpoverse.org" target="_blank" rel="noopener noreferrer">
+                    Pursuit
+                </a>
             </nav>
 
-            <table class="history-table">
-                <caption>Publishing History:</caption>
-                <thead>
-                    <tr>
-                        <th>Story</th>
-                        <th>Published</th>
-                        <th>Publisher</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Dead Man's Party</strong></td>
-                        <td>April 2026</td>
-                        <td>The Tributary</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Scenes from a Goblin-town</strong></td>
-                        <td>April 2025</td>
-                        <td>The Tributary</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Fluff and Fortunes</strong></td>
-                        <td>February 2025</td>
-                        <td>Pressfuls</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Pursuit</strong></td>
-                        <td>April 2026</td>
-                        <td>SpecPoVerse</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- Responsive publishing history table -->
+            <div class="table-container">
+                <table class="history-table">
+                    <caption>Publishing History:</caption>
+
+                    <thead>
+                        <tr>
+                            <th scope="col">Story</th>
+                            <th scope="col">Published</th>
+                            <th scope="col">Publisher</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><strong>Dead Man's Party</strong></td>
+                            <td>April 2026</td>
+                            <td>The Tributary</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Scenes from a Goblin-town</strong></td>
+                            <td>April 2025</td>
+                            <td>The Tributary</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Fluff and Fortunes</strong></td>
+                            <td>February 2025</td>
+                            <td>Pressfuls</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Pursuit</strong></td>
+                            <td>April 2026</td>
+                            <td>SpecPoVerse</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </section>
     </main>
+
     <footer>
         <p>&copy; 2026 Asher Frost</p>
-        <p id="timer-display" class="timer-text" aria-live="polite">Time on page: 0 seconds</p>
+
+        <p id="timer-display" class="timer-text" aria-live="polite">
+            Time on page: 0 seconds
+        </p>
     </footer>
+
     <script>
-        console.log("The webpage has loaded")
+        console.log("The webpage has loaded");
     </script>
+
 </body>
 </html>

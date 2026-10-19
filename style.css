@@ -3,26 +3,27 @@
    ========================================================================== */
 :root {
     /* Color Palette */
-    --color-bg-overlay: rgba(255, 255, 253, 0.94); /* High readability over image (fixed syntax typo) */
-    --color-text-main: #2b2c2a;       /* Charcoal for deep body contrast */
-    --color-text-muted: #555753;      /* Accessible secondary text */
-    --color-heading: #5c563d;         /* Earthy forest tone for structural titles */
-    --color-primary: #654fa3;         /* Deep rich purple for stable links */
-    --color-primary-hover: #3d2d6b;   /* Darker purple for interactive states */
-    --color-visited: #8674b5;         /* Muted purple for historical state */
-    --color-accent-bg: #f7f6f4;       /* Clean neutral background for tables/buttons */
-    --color-border: #dcdad5;          /* Solid structural divider lines */
+    --color-bg-overlay: rgba(255, 255, 253, 0.94);
+    --color-text-main: #2b2c2a;
+    --color-text-muted: #555753;
+    --color-heading: #5c563d;
+    --color-primary: #654fa3;
+    --color-primary-hover: #3d2d6b;
+    --color-visited: #8674b5;
+    --color-accent-bg: #f7f6f4;
+    --color-border: #dcdad5;
 
     /* Typography Scales */
     --font-serif: "Georgia", Times, serif;
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
 
     /* Global Spacing Scale */
-    --spacing-sm: 0.5rem;             /* 8px */
-    --spacing-md: 1rem;               /* 16px */
-    --spacing-lg: 2rem;               /* 32px */
-    --spacing-xl: 3.5rem;             /* 56px */
-    
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3.5rem;
+
     /* Layout Constants */
     --max-width: 850px;
     --radius-md: 8px;
@@ -31,27 +32,36 @@
 /* ==========================================================================
    2. CORE RESET & BOX MODEL
    ========================================================================== */
-*, *::before, *::after {
-    box-sizing: border-box; /* Predictable element sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    width: 100%;
+    overflow-x: clip;
+}
+
 body {
     font-family: var(--font-sans);
-    font-size: 100%; /* 16px structural default */
+    font-size: 100%;
     line-height: 1.6;
     color: var(--color-text-main);
-    background-image: url('asher.jpg'); 
+
+    background-image: url("asher.jpg");
     background-color: var(--color-accent-bg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
+
     padding: var(--spacing-md);
-    
-    /* Sticky footer setup using flex layout on the window viewport */
     min-height: 100vh;
+
+    /* Sticky footer layout */
     display: flex;
     flex-direction: column;
 }
@@ -59,59 +69,84 @@ body {
 /* ==========================================================================
    3. GLOBAL TYPOGRAPHY & INTERACTION
    ========================================================================== */
-h1, h2, h3, caption {
+h1,
+h2,
+h3,
+caption {
     font-family: var(--font-serif);
     color: var(--color-heading);
     line-height: 1.2;
 }
 
-h1 { font-size: 2.5rem; margin-bottom: var(--spacing-sm); }
-h2 { font-size: 1.75rem; margin-bottom: var(--spacing-md); }
-p, ol, ul, table { margin-bottom: var(--spacing-md); }
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
 
-/* Responsive Image Handling Rule */
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-md);
+}
+
+p,
+ol,
+ul,
+table {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Responsive images */
 img {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Accessible Interactive States */
+/* Accessible link states */
 a:link {
     color: var(--color-primary);
     text-decoration: underline;
     font-weight: 600;
 }
+
 a:visited {
     color: var(--color-visited);
 }
-a:hover, a:focus {
+
+a:hover,
+a:focus-visible {
     color: var(--color-primary-hover);
     text-decoration: none;
     outline: 3px solid var(--color-primary);
     outline-offset: 3px;
 }
+
 a:active {
     color: var(--color-text-main);
 }
 
-/* Lists layout adjustments */
-ol, ul {
+/* Lists */
+ol,
+ul {
     padding-left: var(--spacing-lg);
 }
+
 li {
     margin-bottom: var(--spacing-sm);
 }
 
 /* ==========================================================================
-   4. STRUCTURAL CONTENT AREAS (Semantic Hierarchy)
+   4. STRUCTURAL CONTENT AREAS
    ========================================================================== */
-header, main, footer {
+header,
+main,
+footer {
     width: 100%;
     max-width: var(--max-width);
     margin-left: auto;
     margin-right: auto;
     margin-bottom: var(--spacing-md);
+
     background-color: var(--color-bg-overlay);
     border-radius: var(--radius-md);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -123,14 +158,16 @@ header {
     text-align: center;
 }
 
-/* Flexbox Layout Integration for Navigation Components */
+/* Navigation */
 .main-nav {
     margin-top: var(--spacing-md);
     border-top: 1px solid var(--color-border);
     padding-top: var(--spacing-md);
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: var(--spacing-sm);
 }
 
@@ -149,7 +186,12 @@ header {
 
 main {
     padding: var(--spacing-lg);
-    flex: 1 0 auto; /* Expands content wrapper vertically to force sticky footers down */
+    flex: 1 0 auto;
+    min-width: 0;
+}
+
+section {
+    min-width: 0;
 }
 
 footer {
@@ -157,123 +199,293 @@ footer {
     text-align: center;
     font-size: 0.9rem;
     color: var(--color-text-muted);
-    margin-bottom: 0; /* Prevents viewport bleed */
+    margin-bottom: 0;
 }
 
 /* ==========================================================================
-   5. COMPONENT ELEMENT STYLES (Tables, Buttons, Links)
+   5. RESPONSIVE TABLE STYLING
    ========================================================================== */
 
-/* Wide Table Safe Scrolling Wrapper */
+/* Scrollable wrapper keeps wide tables inside the page */
 .table-container {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+
     margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    outline: none;
 }
 
-/* Keyboard indicators for scrolling table container boxes */
-.table-container:focus {
+/* Keyboard focus for the scrollable table */
+.table-container:focus,
+.table-container:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
+/* Table defaults */
+.history-table,
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 0; /* Handled safely by container wrapper margin top */
-    min-width: 500px; /* Safety grid density threshold prevents font squash */
+    margin-top: 0;
 }
 
+/* Publishing history table */
+.history-table {
+    min-width: 500px;
+    table-layout: auto;
+}
+
+.history-table caption,
 caption {
     font-size: 1.25rem;
     font-weight: bold;
+    font-family: var(--font-serif);
+    color: var(--color-heading);
     text-align: left;
+
+    padding: var(--spacing-sm) var(--spacing-md) 0;
     margin-bottom: var(--spacing-sm);
-    padding: var(--spacing-sm) var(--spacing-md) 0 var(--spacing-md);
+
+    caption-side: top;
 }
 
-th, td {
+.history-table th,
+.history-table td,
+th,
+td {
     padding: var(--spacing-md);
     text-align: left;
+    vertical-align: top;
     border-bottom: 1px solid var(--color-border);
 }
 
+.history-table th,
 th {
     background-color: var(--color-accent-bg);
     color: var(--color-text-muted);
     font-weight: 600;
 }
 
-tr:hover {
-    background-color: rgba(0, 0, 0, 0.02);
+.history-table td {
+    overflow-wrap: break-word;
 }
 
-/* Action Links Button Configurations */
-.project-links, .story-links {
+/* Subtle hover feedback */
+.history-table tbody tr:hover,
+tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
+/* Remove the bottom border from the final row */
+.history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   6. PROJECT AND STORY LINKS
+   ========================================================================== */
+.project-links,
+.story-links {
     list-style-type: none;
     padding-left: 0;
 }
 
-/* CSS Grid Layout Integration for Story Links Relationships */
+/* Story links grid */
 .story-links {
     display: grid;
-    grid-template-columns: 1fr; /* Single stacked sequence by default on mobile platforms */
+    grid-template-columns: 1fr;
     gap: var(--spacing-sm);
-    margin: var(--spacing-md) 0 var(--spacing-lg) 0;
+    margin: var(--spacing-md) 0 var(--spacing-lg);
 }
 
-.project-links a, .story-links a {
+.project-links a,
+.story-links a {
     display: block;
+    min-width: 0;
     text-align: center;
+
     background-color: var(--color-primary);
     color: #ffffff !important;
+
     padding: var(--spacing-md);
     border-radius: 4px;
+
     text-decoration: none !important;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    overflow-wrap: anywhere;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
 }
 
-.project-links a:hover, .story-links a:hover,
-.project-links a:focus, .story-links a:focus {
+.project-links a:hover,
+.story-links a:hover,
+.project-links a:focus-visible,
+.story-links a:focus-visible {
     background-color: var(--color-primary-hover);
 }
 
 /* ==========================================================================
-   6. RESPONSIVE MEDIA QUERIES & BREAKPOINTS
+   7. BUTTONS AND THEME TOGGLE
+   ========================================================================== */
+.theme-btn {
+    font: inherit;
+    cursor: pointer;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+
+    background-color: var(--color-accent-bg);
+    color: var(--color-text-main);
+
+    transition: background-color 0.2s ease;
+}
+
+.theme-btn:hover {
+    background-color: var(--color-border);
+}
+
+.theme-btn:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 
-/* 
-   Breakpoint: 550px (Tablet/Desktop Transition Upgrade)
-   Reasoning: Below 550px, the multi-column Grid needs to stack as 1 column to avoid 
-   shrinking text links or breaking viewports when browsers are set to a 200% zoom structure.
-   At widths above 550px, screen real estate allows story buttons to split into dual column side-by-side matrices.
-*/
+/* Tablets and larger screens */
 @media (min-width: 550px) {
     .story-links {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-/* 
-   Breakpoint: 400px (Extreme Narrow Viewports)
-   Reasoning: Aligns text-heavy headers and reduces massive inner margins on ultra-narrow phones 
-   to prioritize text readability bounds over raw padding margins.
-*/
-@media (max-width: 400px) {
-    h1 {
-        font-size: 1.8rem;
+/* Tablets and mobile devices */
+@media screen and (max-width: 768px) {
+    body {
+        background-attachment: scroll;
     }
-    header, main, footer {
+
+    header,
+    main,
+    footer {
+        width: 100%;
+    }
+
+    main {
         padding: var(--spacing-md);
     }
+
+    .table-container {
+        margin-top: var(--spacing-md);
+    }
+
+    .history-table {
+        min-width: 500px;
+    }
+
+    .history-table th,
+    .history-table td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .history-table caption {
+        font-size: 1.1rem;
+    }
+}
+
+/* Small mobile screens */
+@media screen and (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    header,
+    main,
+    footer {
+        padding: var(--spacing-md);
+    }
+
+    .history-table {
+        min-width: 480px;
+    }
+
+    .history-table th,
+    .history-table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+
+    .history-table caption {
+        font-size: 1rem;
+    }
+
     .main-nav {
         flex-direction: column;
         align-items: stretch;
     }
+
     .main-nav a {
         text-align: center;
+        white-space: normal;
+    }
+
+    .theme-btn {
+        max-width: 100%;
+        white-space: normal;
+    }
+}
+
+/* Extra-narrow phones */
+@media screen and (max-width: 350px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    header,
+    main,
+    footer {
+        padding: 12px;
+    }
+
+    .history-table th,
+    .history-table td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
